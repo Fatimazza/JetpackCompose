@@ -11,19 +11,24 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Greeting("Android", "This is a message")
+            GreetingCard(
+                Message ("Android", "This is a message"))
         }
     }
 }
 
+data class Message(val author: String, val body: String)
+
 @Composable
-fun Greeting(author: String, body: String) {
-    Text(text = "Hello $author!")
-    Text(text = "$body")
+fun GreetingCard(msg: Message) {
+    Text(text = msg.author)
+    Text(text = msg.body)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Greeting("Android", "This is a message")
+    GreetingCard(
+        msg = Message ("Android", "This is a message")
+    )
 }
