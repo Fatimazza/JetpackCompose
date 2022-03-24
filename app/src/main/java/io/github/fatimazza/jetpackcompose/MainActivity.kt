@@ -13,14 +13,18 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import io.github.fatimazza.jetpackcompose.ui.theme.JetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            GreetingCard(
-                Message("Android", "This is a message")
-            )
+            // The default Theme name same as Project name
+            JetpackComposeTheme {
+                GreetingCard(
+                    Message("Android", "This is a message")
+                )
+            }
         }
     }
 }
@@ -55,7 +59,9 @@ fun GreetingCard(msg: Message) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    GreetingCard(
-        msg = Message("Android", "This is a message")
-    )
+    JetpackComposeTheme {
+        GreetingCard(
+            msg = Message("Android", "This is a message")
+        )
+    }
 }
