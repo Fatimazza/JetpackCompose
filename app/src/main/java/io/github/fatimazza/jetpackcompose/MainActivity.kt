@@ -7,6 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -85,5 +87,20 @@ fun PreviewGreetingCard() {
         GreetingCard(
             msg = Message("Android", "This is a message")
         )
+    }
+}
+
+@Composable
+fun Conversation(messages: List<Message>) {
+    LazyColumn {
+        items(messages) { message -> GreetingCard(message) }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewConversation() {
+    JetpackComposeTheme {
+        Conversation(SampleData.conversationSample)
     }
 }
