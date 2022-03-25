@@ -80,7 +80,7 @@ fun GreetingCard(msg: Message) {
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun PreviewGreetingCard() {
     JetpackComposeTheme {
         GreetingCard(
             msg = Message("Android", "This is a message")
